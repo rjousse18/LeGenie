@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }} Mentions Légales {% endblock %}
+       
+{% block contenu %}
+    
+    {% if form.valide is defined %} 
+    {% if form.valide == true %}
+       <h1 class="h3 mb-3 font-weight-normal">Création résussie !</h1>
+       <h1 class="h3 mb-3 font-weight-normal">Titre de votre article publié : {{form.titre}}</h1>  
+{% else %} 
+       <h1 class="h3 mb-3 font-weight-normal">Echec de l'inscription</h1> 
+       <h1 class="h3 mb-3 font-weight-normal">Erreur : {{form.message}}</h1>
+       <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=actu">Retourner sur 
+la page d'inscription</a></h1>
+    {% endif %}     
+{% else %}  
+    
+ <form class="form-signin" action="index.php?page=actu" method="post" enctype="application/x-www-form-urlencoded">
+      <h1 class="h3 mb-3 font-weight-normal">Nouvelle actualité</h1>
+      
+      <label for="inputTitre" class="sr-only">Titre : </label>
+      <input type="titre" id="inputTitre" name="inputTitre" name="titre" class="form-control" placeholder="Titre" required autofocus />
+
+      <textarea name="inputContenu" class="form-control" placeholder="Saisir le contenu" rows="5" required></textarea>
+
+      <br />
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Creer" name="btCreation" />
+ </form>
+{% endif %}
+{% endblock %}
