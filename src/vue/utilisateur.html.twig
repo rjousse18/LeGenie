@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Ajout Utilisateurs {% endblock %}
+{% block contenu %} 
+    
+    {% if form.valide is defined %} 
+    {% if form.valide == true %}
+       <h1 class="h3 mb-3 font-weight-normal">Inscription réussie</h1>
+       <h1 class="h3 mb-3 font-weight-normal">Utilisateur : {{form.nom}} {{form.prenom}}</h1>  
+
+{% else %} 
+       <h1 class="h3 mb-3 font-weight-normal">Echec de l'inscription</h1> 
+       <h1 class="h3 mb-3 font-weight-normal">Erreur : {{form.message}}</h1>
+       <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=utilisateur">Retourner sur 
+la page d'inscription</a></h1>
+    {% endif %}     
+{% else %}  
+    
+ <form class="form-signin" action="index.php?page=utilisateur" method="post" enctype="application/x-www-form-urlencoded">
+      <h1 class="h3 mb-3 font-weight-normal">Inscrivez un utilisateur sur Tronche Book</h1>
+      
+        <label for="inputNom" class="sr-only">Nom:</label>
+        <input type="nom" id="inputEmail" name="inputNom" name="nom" class="form-control" placeholder="Nom" required autofocus />
+
+        <label for="inputPrenom" class="sr-only">Prénom:</label>
+        <input type="Prenom" id="inputEmail" name="inputPrenom" name="Prenom" class="form-control" placeholder="Prenom" required autofocus />
+        
+        <label for="inputAdresse" class="sr-only">Adresse:</label>
+        <input type="Adresse" id="inputEmail" name="inputAdresse" name="Adresse" class="form-control" placeholder="Adresse" required autofocus />
+        
+        <label for="inputCp" class="sr-only">Code Postal:</label>
+        <input type="cp" id="inputEmail" name="inputCp" name="cp" class="form-control" placeholder="cp" required autofocus />
+        
+        <label for="inputVille" class="sr-only">Ville:</label>
+        <input type="ville" id="inputEmail" name="inputVille" name="ville" class="form-control" placeholder="ville" required autofocus />
+
+      <br />
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Inscrire" name="btInscrire" />
+ </form>
+{% endif %}
+{% endblock %} 
