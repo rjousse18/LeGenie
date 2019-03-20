@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Interdit"
+AuthUserFile /usr/local/apache/passwd/passwords
+Require user julien

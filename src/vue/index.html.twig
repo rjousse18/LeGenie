@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }} Accueil {% endblock %}
+       
+{% block contenu %} <h1> Tronche Book </h1> 
+
+<table class="table table-hover table-striped">    
+<tr><th>Titre des articles</th></tr>
+{% for u in liste %}
+    <tr>
+        <td> {{u.titre}}
+    </tr>
+{%endfor%}
+</table>
+{% endblock %} 
